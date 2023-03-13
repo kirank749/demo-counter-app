@@ -58,17 +58,7 @@ pipeline{
                     
                 }
             }
-        stage('artifact uploading to Nexus Repository'){
-            
-            steps{
-                script{
-                  nexusArtifactUploader credentialsId: 'nexus credentials', groupId: '1', nexusUrl: '3.110.90.82:8081/repository', nexusVersion: 'nexus3', protocol: 'http', repository: 'snapshots-maven', version: '1' {   
-                        sh 'mvn deply'
-                    }
-                }
-            }
-                
-        }                                            
+                               
                                                        
         
             
