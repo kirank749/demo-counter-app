@@ -62,14 +62,10 @@ pipeline{
                 steps{
                          waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube token'
                     
-                    }
+          }
         }
             
-            }
-        }                
-                                                       
-        
-            
-        }
+    } 
+}            
         
 }
