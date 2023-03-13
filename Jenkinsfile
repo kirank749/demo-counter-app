@@ -102,7 +102,21 @@ pipeline{
                 
                 }
             }
+         stage('Push Docker Image to the Docker Hub'){
+            
+            steps{
+                
+                script{
+                    
+                 withCredentials([usernameColonPassword(credentialsId: 'dockerHubAccount', variable: 'Docker_hub_Credentials')]) {
+                     sh 'docker login -u kirank749 -p ${Docker_hub_Credentials}' 
+                     sh 'docker image push kirank749/$JOB_NAME:v1.$BUILD_ID'
+                     sh 'docker image push kirank749/$JOB_NAME:latest'
+                     
+                   }
+                }
+            }
         }
-        }
+     }
         
 }
