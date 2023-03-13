@@ -102,6 +102,7 @@ pipeline{
                 
                 }
             }
+        }
          stage('Push Docker Image to the Docker Hub'){
             
             steps{
@@ -119,5 +120,4 @@ pipeline{
         }
      }
         
-}
 }
