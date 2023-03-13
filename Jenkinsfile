@@ -58,7 +58,7 @@ pipeline{
                     
                 }
             }
-        stages('artifact uploading to Nexus Repository'){
+        stage('artifact uploading to Nexus Repository'){
             
             steps{
                 script{
