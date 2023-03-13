@@ -58,13 +58,16 @@ pipeline{
                     
                 }
             }
-        stage('quality gate status'){
+        stage('Quality Gate Status'){
+                
                 steps{
+                    
                     script{
-                         waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube token'
+                        
+                        waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube token'
                     }
-          }
-        }
+                }
+            }
             
 }            
         
