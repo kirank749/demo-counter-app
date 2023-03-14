@@ -121,7 +121,7 @@ pipeline{
         steps{
             script{
             sh'docker system prune -a'
-            sh 'yes "yes" | bash script.sh'
+   
             }
             
         }
