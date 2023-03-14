@@ -120,7 +120,7 @@ pipeline{
         stage('SUCCESSFULLY COMPLETED THIS PROJECT'){
         steps{
             script{
-            sh'docker system prune -a'
+            sh 'docker images -q -f dangling=true | xargs --no-run-if-empty docker rmi'
    
             }
             
