@@ -94,8 +94,7 @@ pipeline{
             
             steps{
                 
-                script{
-                    
+                script{ 
                  sh'docker image build -t $JOB_NAME:v1.$BUILD_ID .'
                  sh'docker image tag $JOB_NAME:v1.$BUILD_ID kirank749/$JOB_NAME:v1.$BUILD_ID'
                  sh'docker image tag $JOB_NAME:v1.$BUILD_ID kirank749/$JOB_NAME:latest'   
@@ -109,8 +108,8 @@ pipeline{
                 
                 script{
                     
-                withCredentials([usernamePassword(credentialsId: 'docker_hub_cred', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')])  {
-                    sh 'docker login -u ${USERNAME} -password-stdin ${PASSWORD}' 
+               withCredentials([string(credentialsId: 'dockerhub-cred', variable: 'dockerhub_pwd')])  {
+                    sh 'docker login -u kirank749 -p ${dockerhub_pwd}' 
                      sh 'docker image push kirank749/$JOB_NAME:v1.$BUILD_ID'
                      sh 'docker image push kirank749/$JOB_NAME:latest'
                      
