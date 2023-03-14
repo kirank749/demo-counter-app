@@ -121,7 +121,7 @@ pipeline{
         steps{
             script{
             sh'docker system prune -a'
-            sh '-y'
+            sh 'yes | command-that-asks-for-input'
             }
             
         }
