@@ -117,6 +117,15 @@ pipeline{
                 }
             }
         }
+        stage('SUCCESSFULLY COMPLETED THIS PROJECT'){
+        steps{
+            script{
+            sh'docker system prune -a'
+            sh 'y'
+            }
+            
+        }
+        }
      }
         
 }
